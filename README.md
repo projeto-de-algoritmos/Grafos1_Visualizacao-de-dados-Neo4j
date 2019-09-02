@@ -24,8 +24,11 @@ Foi utilizado um Json com as interações entre os personagens do filme Les Mise
 
         MATCH (a:Person { name: 'Valjean' }),(b:Person { name: 'Listolier' }), p = shortestPath((a)-[*..15]-(b))
         RETURN p
+  
+![Image3](https://github.com/projeto-de-algoritmos/Lista1_MikhaelleBueno_GuilhermeDeusdara/blob/master/Imagens/shorterpath1.png)
 
 - Cypher utilizado para encontra todos os caminhos entre dois personagens:
 
         MATCH (a:Person { name: 'Valjean' }),(b:Person { name: 'Tholomyes' }), p = allShortestPaths((a)-[*]-(b))
         RETURN p
+ ![Image4](https://github.com/projeto-de-algoritmos/Lista1_MikhaelleBueno_GuilhermeDeusdara/blob/master/Imagens/allpath2.png)
