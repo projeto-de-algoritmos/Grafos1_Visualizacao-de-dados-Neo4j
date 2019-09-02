@@ -18,6 +18,22 @@ Foi utilizado um Json com as interações entre os personagens do filme Les Mise
         
 ![Imagem2](https://github.com/projeto-de-algoritmos/Lista1_MikhaelleBueno_GuilhermeDeusdara/blob/master/Imagens/Valjean_relations.png)
 
+## Personagens que Jean Valjean não interagem
+
+
+- Cypher utilizado para encontrar todas as ocorrências: 
+
+
+
+
+       MATCH (p:Person {name:"Valjean"})-[:interagiu_com]->(m)<-[:interagiu_com]-(coActors),
+        (coActors)-[:interagiu_com]->(m2)<-[:interagiu_com]-(cocoActors)
+       WHERE NOT (p)-[:ACTED_IN]->()<-[:ACTED_IN]-(cocoActors) AND p <> cocoActors
+       RETURN cocoActors AS Recommended, count(*) AS Strength ORDER BY Strength DESC
+
+
+![Imagem 5](https://github.com/projeto-de-algoritmos/Lista1_MikhaelleBueno_GuilhermeDeusdara/blob/master/Imagens/notinteract.png)
+
 ## Caminhos
 
 - Cypher utilizado para encontrar o menor caminho entre dois personagens:
